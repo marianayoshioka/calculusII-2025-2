@@ -13,8 +13,14 @@
 \usepackage{listings}
 \lstset{numbers=left, captionpos=b}
 \usepackage{xcolor}
+\usepackage{fancyhdr} 		% cabeçalhos/rodapés
 
+% Margens e Rodapé
 \geometry{margin=2.5cm}
+\pagestyle{fancy}
+\fancyhf{} 					% limpa cabeçalho e rodapé
+\fancyhead[L]{\includegraphics[height=0.5cm]{imagens/logo_impatech.png}}
+\fancyfoot[C]{\thepage}
 
 % Ambientes 
 \renewcommand{\contentsname}{Sumário}
