@@ -1,0 +1,76 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+	
+	\section{Lista 4}
+		\subsection{Parte 1}
+		
+		\begin{exercicio}{3}
+			Demonstrar a propriedade operatória do limite da soma de campos vetoriais. (Baseie-se na demonstração feita no texto para o produto escalar de campos vetoriais)
+		\end{exercicio}
+		\begin{solucao}
+			Sejam $f,g\colon S\subset \mathbb{R}^n \rightarrow \mathbb{R}^m$ campos vetoriais e $a$ ponto de acumulação de $S$. Seja $\lim_{x \to a} f(x)=b$ e $\lim_{x \to a} g(x)=c$. Pela definição de limite da soma e pela definição da soma de funções, temos:
+			\begin{align*}
+				\lim_{x \to a} (f(x) \pm g(x))
+					&= \lim_{x \to a} (f_1(x)\pm g_1(x),\dots, f_m(x)\pm g_m(x)) \\
+					&= \lim_{x \to a} (f_1(x),\dots,f_m(x))\pm (g_1(x),\dots, g_m(x))\\
+					&= \lim_{x \to a} (f_1(x),\dots,f_m(x))\pm \lim_{x \to a} (g_1(x),\dots, g_m(x)) \\
+					&= \lim_{x \to a} f(x) \pm \lim_{x\to a} g(x) \\
+			\end{align*}
+			$\therefore \lim_{x \to a} (f(x) \pm g(x)) = b+c$
+		\end{solucao}
+		
+		\begin{exercicio}{4}
+			Exercícios da seção 8.5 do Apostol - Calc II, pp 282-283:
+			\begin{enumerate}[label=\alph*)]
+				\item (1) -- resolver e ilustrar em ambiente CAS;
+				\item (6) -- resolver e ilustrar em ambiente CAS;
+				\item (7)
+				\item (8)
+			\end{enumerate}
+		\end{exercicio}
+		\begin{solucao}
+			\begin{enumerate}[label=\alph*)]
+				\item 
+				\item Antes de iniciar a solução, é interessante observar as seguintes definições:
+				\begin{definicao}{Limite}
+					Sejam $f(x)\colon S\subset \mathbb{R}^n\to \mathbb{R}^m$, $m\geq 1$, $a\in S$ um ponto de acumulação de $S$. Dizemos que $b$ é o limite de $f(x)$ se, quando $\|x-a\|\to 0$, temos que $\|f(x)-b\|\to 0$ e escrevemos:
+					\[
+					\lim_{x\to a}f(x)=b
+					\]
+				\end{definicao}
+				\begin{definicao}{Continuidade}
+					Sejam $f(x)\colon S\subset \mathbb{R}^n\to \mathbb{R}^m$, $m\geq 1$, $a\in S$ um ponto de acumulação de $S$. Dizemos que $f$ é contínua em $a$ se $f$ é definida em $a$ e
+					\[
+					\lim_{x\to a}f(x)=f(a)
+					\]
+				\end{definicao}
+				
+				Se $(x,y)\neq (0,0)$, seja $f(x,y)=\tfrac{x^2-y^2}{x^2+y^2}$. Além disso, queremos determinar se é possível definir $f(0,0)$, de modo que $f$ seja contínua em $(0,0)$.
+				Assim, note que ao longo da reta $y=mx$, temos
+				\begin{align*}
+					\lim_{(x,y)\to (0,0)} f(x,mx)
+					&=\lim_{(x,y)\to (0,0)} \frac{x^2-m^2x^2}{x^2+m^2x^2}\\
+					&=\lim_{(x,y)\to (0,0)}\frac{x^2(1-m^2)}{x^2(1+m^2)}\\
+					&=\lim_{(x,y)\to (0,0)}\frac{1-m^2}{1+m^2}\\
+					&=\frac{1-m^2}{1+m^2}
+				\end{align*}
+				Portanto, o limite de $f(x,y)$ quando $(x,y)\to (0,0)$ ao longo da reta $y=mx$ é $\tfrac{1-m^2}{1+m^2}$.
+				
+				No entanto, ao mesmo tempo, temos que, para a reta $x=0$, ou seja, para o eixo $y$,
+				\begin{align*}
+					\lim_{(x,y)\to (0,0)} f(0,y) 
+					&=\lim_{(x,y)\to (0,0)} \frac{-y^2}{y^2}\\
+					&=\lim_{(x,y)\to (0,0)} -1\\
+					&=-1
+				\end{align*}
+				Analogamente, para a reta $y=0$, ou seja, para o eixo $x$,
+				\begin{align*}
+					\lim_{(x,y)\to (0,0)} f(x,0)
+					&=\lim_{(x,y)\to (0,0)} \frac{x^2}{x^2}\\
+					&=\lim_{(x,y)\to (0,0)}1\\
+					&=1
+				\end{align*}
+				Dessa forma, 
+			\end{enumerate}
+		\end{solucao}
+\end{document}

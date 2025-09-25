@@ -1,0 +1,77 @@
+% Pacotes úteis
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[most]{tcolorbox}
+\usepackage{physics}        % derivadas, integrais mais bonitinhas
+\usepackage{enumitem}       % personalizar listas
+\usepackage{graphicx}       % imagens
+\usepackage{caption}		% legendas de imagens
+\usepackage{hyperref}       % links no sumário
+\usepackage{geometry}       % margens
+\usepackage{mathtools}
+\usepackage{listings}
+\lstset{numbers=left, captionpos=b}
+\usepackage{xcolor}
+
+\geometry{margin=2.5cm}
+
+% Ambientes 
+\renewcommand{\contentsname}{Sumário}
+\renewcommand{\lstlistingname}{Código}
+
+\newtheoremstyle{meuTeorema}  % nome
+{1em}    % Espaço acima
+{1em}    % Espaço abaixo
+{\itshape} % Fonte do corpo
+{}       % Recuo
+{\bfseries} % Fonte do cabeçalho
+{.}      % Pontuação após cabeçalho
+{.5em}   % Espaço após cabeçalho
+{}       % Cabeçalho especifico
+
+\theoremstyle{meuTeorema}
+\newtheorem{teorema}{Teorema}[section]
+
+\theoremstyle{definition}
+\newtheorem{definicao}{Definição}[section]
+
+\theoremstyle{remark}
+\newtheorem{exemplo}{Exemplo}[section]
+
+% Ambiente para exercício (versão simples)
+\newenvironment{exercicio}[1]{
+	\vspace{0.5cm}
+	\noindent\textbf{Exercício #1. }\itshape}{\vspace{0.3cm}}
+
+\newtcolorbox{solucao}[1][]{
+	enhanced,
+	breakable,
+	colback=brown!5!white,  
+	colframe=brown!90!black,
+	fonttitle=\bfseries,
+	title=Solução,
+	boxrule=0.4pt,
+	arc=0pt,
+	outer arc=0pt,
+	coltitle=black
+}
+
+%Ambiente para códigos
+\lstdefinestyle{python_estiloso}{
+	language=Python,
+	basicstyle=\ttfamily\small,   % fonte monoespaçada menor
+	keywordstyle=\color{blue},
+	commentstyle=\color{green!50!black},
+	stringstyle=\color{red},
+	backgroundcolor=\color{brown!5!white}, % mesmo tom do tcolorbox
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	stepnumber=1,
+	numbersep=5pt,
+	frame=single,
+	rulecolor=\color{brown!90!black},
+	breaklines=true,
+	tabsize=4,
+	showstringspaces=false
+}
