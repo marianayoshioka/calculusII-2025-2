@@ -1,0 +1,243 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+	
+	\section{Lista 8}
+	
+	\begin{exercicio}{1}
+		(T. Apostol; seção 12.4; exercício 4 -- representar graficamente em ambiente computacional)
+		
+		Elimine os parâmetros $u$ e $v$ para obter a equação cartesiana, assim mostrando que a equação vetorial dada representa uma porção da superfície nomeada. Além disso, calcule o produto vetorial fundamental $\partial r/\partial u \times \partial r/\partial v$ em termos de $u$ e $v$.
+		
+		Superfícies de revolução:
+		\[
+		r(u,v) = u\cos v \textbf{i} + u\sin v \textbf{j} + f(u)\textbf{k}
+		\]
+	\end{exercicio}
+	\begin{solucao}
+		Note que
+		\[
+		\begin{cases}
+			x = u\cos v\\
+			y = u\sin v\\
+			z = f(u)
+		\end{cases}
+		\Rightarrow
+		\begin{cases}
+			x^2+y^2 = u^2(\cos^2 v+\sin^2 v)=u^2\\
+			z = f(u)
+		\end{cases}
+		\Rightarrow z = f(\sqrt{x^2+y^2})
+		\]
+		Logo, temos que a equação cartesiaa das superfícies de revolução é $f(\sqrt{x^2+y^2})-z = 0$.
+		
+		Além disso, note que
+		\begin{itemize}
+			\item $\frac{\partial r}{\partial u} = \big(\cos v, \sin v, f'(u)\big)$
+			\item $\frac{\partial r}{\partial v} = \big(-u\sin v, u\cos v, 0\big)$
+		\end{itemize}
+		
+		Portanto, temos que o produto vetorial é dado por
+		\[
+		\frac{\partial r}{\partial u}\times \frac{\partial r}{\partial v}=\big(-f'(u)u\cos v, -f'(u)u\sin v, u\cos^2v+u\sin^2v\big)
+		\]
+		\[
+		\frac{\partial r}{\partial u}\times \frac{\partial r}{\partial v}=\big(-f'(u)u\cos v, -f'(u)u\sin v, u\big)
+		\]
+		Abaixo está a representação gráfica de uma superfície de revolução escolhida (paraboloide), com os vetores $\frac{\partial r}{\partial u}$, $\frac{\partial r}{\partial v}$ e seu produto vetorial.
+		\begin{center}
+			\includegraphics[width=0.25\textwidth]{imagens/lista08/picture_lista08_q01_item04.png}
+			\captionof{figure}{Representação gráfica da superfície de revolução e de vetores}
+		\end{center}
+	\end{solucao}
+	
+	\begin{exercicio}{2}
+		(T. Apostol; seção 12.6; exercício 6 -- representar graficamente em ambiente computacional)
+		
+		Calcule a área da porção da superfície cônica $x^2+y^2=z^2$ que fica acima do plano $xy$ e é cortada pela esfera $x^2+y^2+z^2=2ax$.
+	\end{exercicio}
+	\begin{solucao}
+		Parametrizando a superfície do cone com coordenadas polares, temos
+		\begin{align*}
+			&\begin{cases}
+				x = r\cos(\theta)\\
+				y = r\sin(\theta)\\
+				z = \sqrt{x^2+y^2}=r
+			\end{cases}\\
+			&\Rightarrow
+			\begin{cases}
+				\frac{\partial (x,y,z)}{\partial r}=(\cos(\theta), 	\sin(\theta), 1)\\
+				\frac{\partial (x,y,z)}{\partial \theta}=(-r\sin(\theta), 	r\cos(\theta), 0)
+			\end{cases}\\
+			&\Rightarrow \frac{\partial (x,y,z)}{\partial r}\times 	\frac{\partial (x,y,z)}{\partial \theta} = (-r\cos(\theta), -r\sin(\theta), r)\\
+			&\Rightarrow \|\frac{\partial (x,y,z)}{\partial r}\times 	\frac{\partial (x,y,z)}{\partial \theta}\| = r\sqrt{2}
+		\end{align*}
+		Além disso, note que para a região do cone que é cortada pela esfera, temos
+		\[
+		\begin{cases}
+			x^2+y^2=z^2\\
+			x^2+y^2+z^2=2ax
+		\end{cases}
+		\Rightarrow z^2 = ax
+		\Rightarrow r^2 = a(r\cos(\theta))
+		\Rightarrow r = a\cos(\theta)
+		\]
+		Logo, temos a região de integração $R$, em que $r$ varia de $0$ a $a\cos(\theta)$, enquanto $\theta$ varia de $-\frac{\pi}{2}$ a $\frac{\pi}{2}$, garatindo a positividade da esfera.
+		
+		Com isso, conseguimos calcular a área $A$ da porção do cone cortado pela esfera acima do plano $xy$.
+		
+		\begin{align*}
+			A
+			&=\iint_R r\sqrt{2}\, dA\\
+			&=\sqrt{2}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \int_0^{a\cos(\theta)} r \, dr \, d\theta\\
+			&=\sqrt{2}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \bigg[\frac{r^2}{2}\bigg]\Bigg|_{0}^{a\cos(\theta)}\, d\theta\\
+			&=\sqrt{2}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\frac{a^2\cos^2(\theta)}{2}\, d\theta\\
+			&=\frac{a^2\sqrt{2}}{2}\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\frac{1+\cos(2\theta)}{2}\, d\theta\\
+			&=\frac{a^2\sqrt{2}}{8}\int_{-\pi}^{\pi} 1+\cos(t)\, dt\\
+			&=\frac{a^2\sqrt{2}}{8}\bigg[t+\sin(t)\bigg]\Bigg|_{-\pi}^\pi\\
+			&=\frac{a^2\sqrt{2}2\pi}{8}=\frac{\pi a^2\sqrt{2}}{4}
+		\end{align*}
+		
+		Abaixo está representado graficamente a superfície cônica sendo cortada por uma esfera, onde $a=1$.
+		\begin{center}
+			\includegraphics[width=0.25\textwidth]{imagens/lista08/picture_lista08_q02_item06.png}
+			\captionof{figure}{Representação gráfica da superfície cônica e da esfera}
+		\end{center}
+	\end{solucao}
+	
+	\begin{exercicio}{3}
+		(T. Apostol; seção 12.10; exercício 1)
+		
+		Seja $S$ o hemisfério $x^2+y^2+z^2=1$, $z\geq 0$, e seja $F(x,y,z)=x \, \textbf{i}+y \, \textbf{j}$. Seja $\textbf{n}$ o vetor normal unitário de $S$ voltado para fora. Calcule o valor da integral de superfície $\iint_S F\cdot n \, dS$, usando:
+		\begin{enumerate}[label=\alph*)]
+			\item a representação vetorial $\textbf{r}(u,v)=\sin u \cos v \, \textbf{i}+\sin u \sin v \, \textbf{j}+\cos u \, \textbf{k}$,
+			\item a representação explícita $z=\sqrt{1-x^2-y^2}$.
+		\end{enumerate}
+	\end{exercicio}
+	\begin{solucao}
+		\begin{enumerate}[label=\alph*)]
+			\item Sabemos que
+			\begin{align*}
+			&\begin{cases}
+				\frac{\partial r}{\partial u}=(\cos u \cos v,\, \cos u \sin v,\, - \sin u)\\
+				\frac{\partial r}{\partial v}=(-\sin u \sin v,\, \sin u \cos v,\, 0)
+			\end{cases}\\
+			&\Rightarrow \frac{\partial r}{\partial u}\times \frac{\partial r}{\partial v}=(\sin^2u\cos v,\, \sin^2 u \sin v,\, \cos^2v\cos u \sin u+\sin^2 v \cos u \sin u)\\
+			&\Rightarrow\frac{\partial r}{\partial u}\times \frac{\partial r}{\partial v}=(\sin^2u\cos v,\, \sin^2 u \sin v,\, \cos u \sin u)
+			\end{align*}
+			Pela definição de integral de superfície, temos
+			\begin{align*}
+				&\iint_S F\cdot n \, dS\\
+				&=\iint_R F(r(u,v))\cdot \bigg(\frac{\partial r}{\partial u}\times \frac{\partial r}{\partial v}\bigg) \, du \, dv \\
+				&=\iint_R (\sin u \cos v, \sin u \sin v, 0) \cdot (\sin^2u\cos v,\, \sin^2 u \sin v,\, \cos u \sin u)\, du \, dv\\
+				&= \iint_R \sin^3u\cos^2 v + \sin^3u\sin^2v \, du \, dv\\
+				&= \int_0^{2\pi}\int_0^{\frac{\pi}{2}} \sin^3u \, du \, dv\\
+				&= \int_0^{2\pi}\int_0^{\frac{\pi}{2}} \sin^u(1-\cos^2u) \, du \, dv\\
+				&= \int_0^{2\pi}\int_1^{0} -(1-t^2) \, dt \, dv= \int_0^{2\pi}\int_0^{1} (1-t^2) \, dt \, dv\\
+				&= \int_0^{2\pi}\bigg[t-\frac{t^3}{3}\bigg]\Biggr|_0^1 \, dv\\
+				&= \int_0^{2\pi}\frac{2}{3}\, dv=\frac{4\pi}{3}
+			\end{align*}
+			\item Sabemos que a normal também pode ser dada pelo gradiente da função implícita normalizada.
+			
+			Seja $G$ a função implícita tal que $G(x,y,z)=x^2+y^2+z^2$ e, assim, a curva de nível $G(x,y,z)=1$ é o hemisfério $S$.
+			\[
+			\textbf{n}=\frac{\nabla G}{|\nabla G|}=\frac{(2x, 2y, 2z)}{\sqrt{4(x^2+y^2+z^2)}}=(x, y, z)
+			\]
+			Além disso, sabemos que
+			\[
+			dS=\frac{|\nabla G|}{|\nabla G \cdot \textbf{k}|}dA=\frac{2}{2z}dA=\frac{1}{z}dA
+			\]
+			Com isso, podemos calcular a integral de superfície:
+			\begin{align*}
+				&\iint_S F\cdot n \, dS\\
+				&=\iint_R (x,y,z)\cdot (x,y,z) \, \frac{1}{z}dA\\
+				&=\iint_R \frac{x^1+y^2}{\sqrt{1-x^2-y^2}}\, dx \, dy\\
+				&=\int_0^{2\pi}\int_0^1 \frac{r^2}{\sqrt{1-r^2}}r \, dr \, d\theta\\
+				&=\int_0^{2\pi}\int_1^0 \frac{1-u}{\sqrt{u}}\bigg(-\frac{1}{2}\bigg) \, du \, d\theta\\
+				&=-\frac{1}{2}\int_0^{2\pi}\int_1^0 u^{-1/2}-u^{1/2} \, du \, d\theta\\
+				&=-\frac{1}{2}\int_0^{2\pi} \bigg[2u^{1/2}-\frac{2}{3}u^{3/2}\bigg]\Biggr|_1^0 \, du \, d\theta\\
+				&=-\frac{1}{2}\int_0^{2\pi} -2+\frac{2}{3} \, du \, d\theta\\
+				&=\frac{1}{2}\frac{4}{3}2\pi=\frac{4\pi}{3}
+			\end{align*}
+		\end{enumerate}
+	\end{solucao}
+	
+	\begin{exercicio}{4}
+		(T. Apostol; seção 12.13; exercício 2)
+		
+		Seja $F(x,y,z)=y\textbf{i}+z\textbf{j}+x\textbf{k}$, onde $S$ é a porção do paraboloide $z=1-x^2-y^2$ com $z\geq 0$, e seja $\textbf{n}$ o vetor unitário com uma componente $z$ não negativa. 
+		 
+		Transforme a integral de superfície $\iint_S (\nabla \times F)\cdot n \, dS$ em uma integral de linha pelo Teorema de Stokes, e então calcule a integral de linha.
+	\end{exercicio}
+	\begin{solucao}
+		Pelo Teorema de Stokes, temos que
+		\[
+		\iint_S (\nabla \times F)\cdot n \, dS = \oint_C F\, d\alpha
+		\]
+		Sabemos que
+		\[
+		\begin{cases}
+			z=1-x^2-y^2\\
+			z\geq 0
+		\end{cases}
+		\Rightarrow 1\geq x^2 +y^2
+		\]
+		Assim, temos que o caminho $C$ da integral de linha é dado pelo círculo unitário no plano $xy$ centrado na origem. Logo, temos $\alpha(t)=(\cos(t), \sin(t), 0)\Rightarrow \alpha'(t)=(-\sin(t), \cos(t), 0)$.
+		\begin{align*}
+			\iint_S (\nabla \times F)\cdot n \, dS
+			&= \oint_C F\, d\alpha\\
+			&= \int_0^{2\pi} (\sin(t), 0, \cos(t))\cdot(-\sin(t), \cos(t), 0)\, dt\\
+			&= -\int_0^{2\pi} \sin^2(t) \, dt = -\int_0^{2\pi} \frac{1-\cos(2t)}{2}\, dt\\
+			&= -\frac{1}{4}\int_0^{4\pi}1-\cos(u)\, du=-\frac{1}{4}\bigg[u-\sin(u)\bigg]\Biggr|_0^{2\pi}\\
+			&=-\frac{4\pi}{4}=-\pi  
+		\end{align*}
+	\end{solucao}
+	
+	\begin{exercicio}{5}
+		(T. Apostol; seção 12.15; exercícios  1(a) e 1(c))
+		
+		Para cada um dos seguintes campos vetoriais, determine a matriz Jacobiana e calcule o rotacional e o divergente.
+		\begin{enumerate}[label=\alph*)]
+			\item[a)] $F(x,y,z)=(x^2+yz)\textbf{i}+(y^2+xz)\textbf{j}+(z^2+xy)\textbf{k}$.
+			\item[c)] $F(x,y,z)=(z + \sin y)\textbf{i}-(z-x\cos y)\textbf{j}$.
+		\end{enumerate}
+	\end{exercicio}
+	\begin{solucao}
+		\begin{enumerate}[label=\alph*)]
+			\item[a)] Calculando a matriz Jacobiana, temos
+			\[
+			J_F=\begin{pmatrix}
+				\frac{\partial (x^2+yz)}{\partial x} & \frac{\partial (x^2+yz)}{\partial y} & \frac{\partial (x^2+yz)}{\partial z}\\ 
+				\frac{\partial (y^2+xz)}{\partial x} & \frac{\partial (y^2+xz)}{\partial y} & \frac{\partial (y^2+xz)}{\partial z}\\ 
+				\frac{\partial (z^2+xy)}{\partial x} & \frac{\partial (z^2+xy)}{\partial y} & \frac{\partial (z^2+xy)}{\partial z} 
+			\end{pmatrix} = \begin{pmatrix}
+				2x & z & y\\ 
+				z & 2y & x\\ 
+				y & x & 2z 
+			\end{pmatrix} 
+			\]
+			Com isso, sabemos que o rotacional e o divergente são dados por
+			\begin{itemize}
+				\item $\nabla \times F = (x-x, y-y, z-z)=(0,0,0)$
+				\item $\nabla \cdot F = 2x+2y+2z=2(x+y+z)$
+			\end{itemize}
+			\item[c)] Calculando a matriz Jacobiana, temos
+			\[
+			J_F=\begin{pmatrix}
+				\frac{\partial (z+\sin y)}{\partial x} & \frac{\partial (z+\sin y)}{\partial y} & \frac{\partial (z+\sin y)}{\partial z}\\ 
+				\frac{\partial (x\cos y -z)}{\partial x} & \frac{\partial (x\cos y -z)}{\partial y} & \frac{\partial (x\cos y -z)}{\partial z}\\ 
+				\frac{\partial (0)}{\partial x} & \frac{\partial (0)}{\partial y} & \frac{\partial (0)}{\partial z} 
+			\end{pmatrix} = \begin{pmatrix}
+				0 & \cos(y) & 1\\ 
+				\cos y & -x\sin y & -1\\ 
+				0 & 0 & 0 
+			\end{pmatrix} 
+			\]
+			Com isso, sabemos que o rotacional e o divergente são dados por
+			\begin{itemize}
+				\item $\nabla \times F = (0-(-1), 1-0, \cos y-\cos y)=(1,1,0)$
+				\item $\nabla \cdot F = -x \sin y$
+			\end{itemize}
+		\end{enumerate}
+	\end{solucao}
+	
+\end{document}

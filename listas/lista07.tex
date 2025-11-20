@@ -1,0 +1,76 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+	
+	\section{Lista 7}
+	\begin{exercicio}{1}
+		(T. Apostol; seção 11.9; exercícios 2 e 13)
+		\begin{enumerate}
+			\item[2.] Calcule a seguinte integral dupla por integração iterada, dado que essa integral existe.
+			\[
+			\iint_Q (x^3+3x^2y+y^3)\, dx \, dy \text{, onde } Q = [0,1]\cross[1,3].
+			\]
+			\item[13.] Seja $f$ definida no retângulo $Q=[1,2]\cross[1,4]$ da seguinte forma:
+			\[
+			f(x,y)=\begin{cases}(x+y)^{-2}\text{, se } x\leq y\leq 2x\\ 0 \text{, caso contrário}\end{cases}
+			\]
+		Indique, por meio de um rascunho, a porção de $Q$ em que $f$ é não nula e calcule o valor da integral dupla $\iint_Q f$, dado que essa integral existe.
+		\end{enumerate}
+	\end{exercicio}
+	\begin{solucao}
+		\begin{enumerate}
+			\item[2.]
+			\item[13.]
+			Segue abaixo o rascunho:
+			\begin{center}
+				\includegraphics[width=0.25\textwidth]{imagens/lista07/picture_lista07_q01_item13.png}
+				\captionof{figure}{Rascunho de $Q$ em que $f\neq0$}
+			\end{center}
+		\end{enumerate}
+	\end{solucao}
+	
+	\begin{exercicio}{2}
+		(T. Apostol; seção 11.15; exercícios 2 e 19)
+		
+		\begin{enumerate}
+			\item[2.] Faça um rascunho da região de integração e calcule a integral dupla:
+			\[
+			\iint_S (1+x)\sin(y) \, dx \, dy
+			\]
+			Onde $S$ é um trapezoide de vértices $(0,0)$, $(1,0)$, $(1,2)$, $(0,1)$.
+			\item[19.] Quando uma integral dupla representa o volume $V$ do sólido sob o paraboloide $z=x^2+y^2$ e sobre a região $S$ no plano $xy$, a seguinte soma de integrais iteradas é obtida:
+			\[
+			V=\int_0^1\bigg[\int_0^y (x^2+y^2)\, dx\bigg]\, dy +\int_1^2\bigg[\int_0^{2-y}(x^2+y^2)\, dx\bigg]\, dy
+			\]
+			Rascunhe a região $S$ e expresse $V$ como a integral iterada em que a ordem de integração é invertida. Além disso, continue a integração e calcule $V$.
+		\end{enumerate}
+	\end{exercicio}
+	
+	\begin{exercicio}{3}
+		(T. Apostol; seção 11.22; exercício 1)
+		
+		Utilize o Teorema de Green para calcular a integral de linha $\varointctrclockwise_C y^2\, dx + x\, dy$, quando
+		\begin{enumerate}[label=\alph*)]
+			\item $C$ é um quadrado de vértices $(0,0)$, $(2,0)$, $(2,2)$, $(0,2)$.
+			\item $C$ é um quadrado de vértices $(\pm 1, \pm 1)$.
+			\item $C$ é um quadrado de vértices $(\pm2,0)$, $(0,\pm2)$.
+			\item $C$ é o círculo de raio $2$ e centro na origem.
+			\item $C$ tem a equação vetorial $\alpha(t)=2\cos^3t \textbf{i} + 2\sin^3t \textbf{j}$, $0\leq t\leq 2\pi$.
+		\end{enumerate}
+	\end{exercicio}
+	
+	\begin{exercicio}{4}
+		Descreva com suas palavras o Teorema de Green, escolha um exemplo de uso e ilustre (pode ser esboço à mão).
+	\end{exercicio}
+	
+	\begin{exercicio}{5}
+		(T. Apostol; seção 11.28; exercícios 3 e 7)
+		\begin{enumerate}
+			\item[3.] Faça um rascunho da região $S=\{(x,y)\mid a^2\leq x^2+y^2 \leq b^2\}$, onde $0<a<b$, e expresse a integral dupla $\iint_S f(x,y)\, dx \, dy$ como uma integral iterada em coordenadas polares.
+			\item[7.] Transforme a seguinte integral e coordenadas polares e calcule o seu valor.
+			\[
+			\int_0^a\bigg[\int_0^x \sqrt{x^2+y^2}\, dy\bigg]\, dx
+			\]
+		\end{enumerate}
+	\end{exercicio}
+	
+\end{document}
